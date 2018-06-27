@@ -98,13 +98,21 @@ export default class Layout extends React.Component{
                         }
                         if (filter.value === 'pending') {
                             return row[filter.id] === 'pending';
-    
                         }
                         if (filter.value === 'hold') {
                             return row[filter.id] === 'hold';
                         }
+                        if (filter.value === 'solved') {
+                            return row[filter.id] === 'solved';
+                        }
                         if (filter.value === 'closed') {
                             return row[filter.id] === 'closed';
+                        }
+                        if (filter.value === '<solved') {
+                            return (row[filter.id] === 'open' || row[filter.id] === 'pending' || row[filter.id] === 'hold');
+                        }
+                        if (filter.value === 'solved_closed') {
+                            return (row[filter.id] === 'solved' || row[filter.id] === 'closed');
                         }
                       },
                       Filter: ({ filter, onChange }) =>
@@ -117,15 +125,25 @@ export default class Layout extends React.Component{
                           <option value='open'>Open</option>
                           <option value='pending'>Pending</option>
                           <option value='hold'>Hold</option>
+                          <option value='solved'>Solved</option>
                           <option value='closed'>Closed</option>
+                          <option value='<solved'>&lt; Solved</option>
+                          <option value='solved_closed'>Solved & Closed</option>
                         </select>
                     }
                 ];
+
 
             return(<ReactTable 
                 data={this.state.dqTickets_JSON} 
                 columns={columns} 
                 filterable
+                defaultSorted={[
+                    {
+                      id: "id",
+                      desc: true
+                    }
+                  ]}
                 getTdProps={this.onRowClick}
                 className="-striped -highlight"/>)
         }  
