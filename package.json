@@ -9,6 +9,7 @@
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4",
     "react-sidebar": "^2.3.2",
+    "react-spinners": "^0.3.2",
     "react-table": "^6.8.6",
     "ts-react-json-table": "^0.1.1"
   },
