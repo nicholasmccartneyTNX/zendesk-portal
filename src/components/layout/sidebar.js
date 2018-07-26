@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Sidebar from 'react-sidebar'
 import SidebarItems from './sidebar_items'
 import DQ_Page from '../pages/dq_tickets/dq_tickets'
+import RR_Page from '../pages/refresh_tickets/refresh_tickets'
 
 export default class SidebarMenu extends React.Component {
 
@@ -12,6 +13,7 @@ export default class SidebarMenu extends React.Component {
       this.state = {
         sidebarOpen: true,
         dqPageToggle: false,
+        rrPageToggle: false,
         currentPage: "Support Portal"
       }
     
@@ -34,10 +36,18 @@ export default class SidebarMenu extends React.Component {
         case "DQ_Page":
           this.setState({
             dqPageToggle: true,
+            rrPageToggle: false,
             sidebarOpen: false,
             currentPage: "Data Quality Tickets"
           });
           break;
+        case "RR_Page":
+          this.setState({
+            rrPageToggle: true,
+            dqPageToggle: false,
+            sidebarOpen: false,
+            currentPage: "HCO Refresh Tickets"            
+          });
         }
     }
 
@@ -59,6 +69,11 @@ export default class SidebarMenu extends React.Component {
               {
                 this.state.dqPageToggle
                   ? <DQ_Page/>
+                  : null
+              }
+              {
+                this.state.rrPageToggle
+                  ? <RR_Page/>
                   : null
               }
 

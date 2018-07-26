@@ -33,50 +33,103 @@ export default class TicketDetails extends React.Component {
 
         if (this.state.ticketComments === "" ) {
             this.getTicketComments()
-            return (
-                <div>
-                    <button onClick={this.props.navigateBack}>Back</button>
-                    <br/><br/>
-                    <strong>Ticket ID:</strong> {this.props.id}
-                    <br/>
-                    <strong>Subject:</strong> {this.props.subject}
-                    <br/>
-                    <strong>Requester:</strong> {this.props.requester_email}
-                    <br/>
-                    <strong>Organization:</strong> {this.props.organization_name}
-                    <br/><br/>
-                    <h2 align="center">Loading ticket details...</h2>
-                </div>
-            )
-        } else if (this.state.ticketComments === "Error getting tiket details") {
+
+            if (this.props.ticketType === "refresh") {
+                return (
+                    <div>
+                        <button onClick={this.props.navigateBack}>Back</button>
+                        <br/><br/>
+                        <strong>Ticket ID:</strong> {this.props.id}
+                        <br/>
+                        <strong>Subject:</strong> {this.props.subject}
+                        <br/>
+                        <strong>Requester:</strong> {this.props.requester_email}
+                        <br/>
+                        <strong>Organization:</strong> {this.props.organization_name}
+                        <br/>
+                        <strong>Patient Count:</strong> {this.props.patient_count}
+                        <br/>
+                        <strong>Refresh Date:</strong> {this.props.refresh_date}
+                        <br/><br/>
+                        <h2 align="center">Loading ticket details...</h2>
+                    </div>  
+                )
+            } else {
+                return (
+                    <div>
+                        <button onClick={this.props.navigateBack}>Back</button>
+                        <br/><br/>
+                        <strong>Ticket ID:</strong> {this.props.id}
+                        <br/>
+                        <strong>Subject:</strong> {this.props.subject}
+                        <br/>
+                        <strong>Requester:</strong> {this.props.requester_email}
+                        <br/>
+                        <strong>Organization:</strong> {this.props.organization_name}
+                        <br/>
+                        <h2 align="center">Loading ticket details...</h2>
+                    </div>  
+                )
+            } 
+        } else if (this.state.ticketComments === "Error getting ticket details") {
             return(<div>Error getting Ticket details</div>)
         }
         else {
             var columns = [
                 {Header:'Author Email', accessor:'author_email', width:250},
                 {Header:'Public?', accessor:'public', width:75},
-                {Header:'Comment', accessor:'body', style:{'white-space': 'pre-wrap'}},
+                {Header:'Comment', accessor:'body', style:{'whiteSpace': 'pre-wrap'}},
                 {Header:'Date', accessor:'created_at', width:250}
             ]
-            return(
-                <div>
-                    <button onClick={this.props.navigateBack}>Back</button>
-                    <br/><br/>
-                    <strong>Ticket ID:</strong> {this.props.id}
-                    <br/>
-                    <strong>Subject:</strong> {this.props.subject}
-                    <br/>
-                    <strong>Requester:</strong> {this.props.requester_email}
-                    <br/>
-                    <strong>Organization:</strong> {this.props.organization_name}
-                    <br/>
-                    <br/>
-                    <ReactTable 
-                    data={this.state.ticketComments}
-                    columns={columns} 
-                    className="-striped -highlight"/>
-                </div>
-            )
+
+            if (this.props.ticketType === "refresh"){
+                return(
+                    <div>
+                        <button onClick={this.props.navigateBack}>Back</button>
+                        <br/><br/>
+                        <strong>Ticket ID:</strong> {this.props.id}
+                        <br/>
+                        <strong>Subject:</strong> {this.props.subject}
+                        <br/>
+                        <strong>Requester:</strong> {this.props.requester_email}
+                        <br/>
+                        <strong>Organization:</strong> {this.props.organization_name}
+                        <br/>
+                        <strong>Patient Count:</strong> {this.props.patient_count}
+                        <br/>
+                        <strong>Refresh Date:</strong> {this.props.refresh_date}
+                        <br/>
+                        <br/>
+                        <ReactTable 
+                        data={this.state.ticketComments}
+                        columns={columns} 
+                        className="-striped -highlight"
+                        defaultPageSize={10}/>
+                    </div>
+                )
+
+            } else {
+                return(
+                    <div>
+                        <button onClick={this.props.navigateBack}>Back</button>
+                        <br/><br/>
+                        <strong>Ticket ID:</strong> {this.props.id}
+                        <br/>
+                        <strong>Subject:</strong> {this.props.subject}
+                        <br/>
+                        <strong>Requester:</strong> {this.props.requester_email}
+                        <br/>
+                        <strong>Organization:</strong> {this.props.organization_name}
+                        <br/>
+                        <br/>
+                        <ReactTable 
+                        data={this.state.ticketComments}
+                        columns={columns} 
+                        className="-striped -highlight"
+                        defaultPageSize={10}/>
+                    </div>
+                )
+            }
         }
     }
 }
