@@ -6,7 +6,7 @@ import { BeatLoader } from 'react-spinners';
 import TicketDetails from '../global/ticket_details'
 let config = require('../../../config/config.js')
 
-export default class Layout extends React.Component{
+export default class DQPage extends React.Component{
 
     constructor(props){
         super(props)

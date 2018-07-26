@@ -39,7 +39,7 @@ export default class TicketDetails extends React.Component {
             if (this.props.ticketType === "refresh") {
                 return (
                     <div>
-                        <button onClick={this.props.navigateBack}>Back</button>
+                        <button className="backRefresh" onClick={this.props.navigateBack}>&lt;-- Back</button>
                         <br/><br/>
                         <strong>Ticket ID:</strong> {this.props.id}
                         <br/>
@@ -66,7 +66,7 @@ export default class TicketDetails extends React.Component {
             } else {
                 return (
                     <div>
-                        <button onClick={this.props.navigateBack}>Back</button>
+                        <button className="back" onClick={this.props.navigateBack}>&lt;-- Back</button>
                         <br/><br/>
                         <strong>Ticket ID:</strong> {this.props.id}
                         <br/>
@@ -107,7 +107,7 @@ export default class TicketDetails extends React.Component {
             if (this.props.ticketType === "refresh"){
                 return(
                     <div>
-                        <button onClick={this.props.navigateBack}>Back</button>
+                        <button className="backRefresh" onClick={this.props.navigateBack}>&lt;-- Back</button>
                         <br/><br/>
                         <strong>Ticket ID:</strong> {this.props.id}
                         <br/>
@@ -133,7 +133,7 @@ export default class TicketDetails extends React.Component {
             } else {
                 return(
                     <div>
-                        <button onClick={this.props.navigateBack}>Back</button>
+                        <button className="back" onClick={this.props.navigateBack}>&lt;-- Back</button>
                         <br/><br/>
                         <strong>Ticket ID:</strong> {this.props.id}
                         <br/>
