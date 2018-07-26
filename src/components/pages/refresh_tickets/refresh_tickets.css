@@ -1,0 +1,17 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.flex-item {
+    
+    padding: 5px;
+    color: black;
+    text-align: center;
+}
+
+.flex-dropdown {
+    width: fit-content;
+}
