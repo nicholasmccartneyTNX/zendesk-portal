@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import ReactTable from 'react-table'
+import { BeatLoader } from 'react-spinners';
+
 let config = require('../../../config/config.js')
 
 export default class TicketDetails extends React.Component {
@@ -51,8 +53,15 @@ export default class TicketDetails extends React.Component {
                         <br/>
                         <strong>Refresh Date:</strong> {this.props.refresh_date}
                         <br/><br/>
-                        <h2 align="center">Loading ticket details...</h2>
-                    </div>  
+                        
+                        <div align="center">
+                            <BeatLoader
+                            color={'#00467F'} 
+                            loading={true}
+                        />
+                        <p class="loading">Loading Ticket Details</p>
+                       </div>
+                   </div>  
                 )
             } else {
                 return (
@@ -66,13 +75,26 @@ export default class TicketDetails extends React.Component {
                         <strong>Requester:</strong> {this.props.requester_email}
                         <br/>
                         <strong>Organization:</strong> {this.props.organization_name}
-                        <br/>
-                        <h2 align="center">Loading ticket details...</h2>
+                        <br/><br/>
+                        
+                        <div align="center">
+                            <BeatLoader
+                            color={'#00467F'} 
+                            loading={true}
+                        />
+                        <p class="loading">Loading Ticket Details</p>
+                       </div>
                     </div>  
                 )
             } 
-        } else if (this.state.ticketComments === "Error getting ticket details") {
-            return(<div>Error getting Ticket details</div>)
+         } else if (this.state.ticketComments === "Error getting tiket details") {
+            return(
+                <div>
+                    <button onClick={this.props.navigateBack}>Back</button>
+                    <br/><br/>
+                    <p>Error getting Ticket details</p>
+                </div>
+            )
         }
         else {
             var columns = [

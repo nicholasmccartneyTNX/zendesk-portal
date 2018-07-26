@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import '../../../../node_modules/react-table/react-table.css'
 import ReactTable from 'react-table'
+import { BeatLoader } from 'react-spinners';
 import TicketDetails from '../global/ticket_details'
 let config = require('../../../config/config.js')
 
@@ -67,7 +68,16 @@ export default class Layout extends React.Component{
 
         if (this.state.dqTickets_JSON === "" ) {
             this.getDQTickets()
-            return (<h2 align="center">Loading table data...</h2>)
+            return (
+                <div align="center">
+                    <br/><br/>
+                    <BeatLoader
+                        color={'#00467F'} 
+                        loading={true}
+                    />
+                    <p class="loading">Loading Data Quality Tickets</p>
+                </div>
+            )
         } else if (this.state.dqTickets_JSON === "Error") {
             return(<div>Error getting Data Quality tickets</div>)
         }
@@ -77,7 +87,8 @@ export default class Layout extends React.Component{
                 subject={this.state.ticketDetailSubject}
                 requester_email={this.state.ticketDetailRequester}
                 organization_name={this.state.ticketDetailOrganization}
-                navigateBack = {this.navigateBack.bind(this)}/>)
+                navigateBack = {this.navigateBack.bind(this)}/>
+            )
         }
         else {
             var columns = [
