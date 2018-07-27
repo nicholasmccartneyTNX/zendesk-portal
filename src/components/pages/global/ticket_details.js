@@ -52,6 +52,8 @@ export default class TicketDetails extends React.Component {
                         <strong>Patient Count:</strong> {this.props.patient_count}
                         <br/>
                         <strong>Refresh Date:</strong> {this.props.refresh_date}
+                        <br/>
+                        <strong>Creation Date:</strong> {this.props.created_at}
                         <br/><br/>
                         
                         <div align="center">
@@ -75,6 +77,8 @@ export default class TicketDetails extends React.Component {
                         <strong>Requester:</strong> {this.props.requester_email}
                         <br/>
                         <strong>Organization:</strong> {this.props.organization_name}
+                        <br/>
+                        <strong>Creation Date:</strong> {this.props.created_at}
                         <br/><br/>
                         
                         <div align="center">
@@ -121,6 +125,8 @@ export default class TicketDetails extends React.Component {
                         <br/>
                         <strong>Refresh Date:</strong> {this.props.refresh_date}
                         <br/>
+                        <strong>Creation Date:</strong> {this.props.created_at}
+                        <br/>
                         <br/>
                         <ReactTable 
                         data={this.state.ticketComments}
@@ -142,6 +148,8 @@ export default class TicketDetails extends React.Component {
                         <strong>Requester:</strong> {this.props.requester_email}
                         <br/>
                         <strong>Organization:</strong> {this.props.organization_name}
+                        <br/>
+                        <strong>Creation Date:</strong> {this.props.created_at}
                         <br/>
                         <br/>
                         <ReactTable 

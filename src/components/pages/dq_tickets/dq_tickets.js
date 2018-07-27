@@ -17,7 +17,8 @@ export default class DQPage extends React.Component{
             ticketDetailID: "",
             ticketDetailSubject: "",
             ticketDetailRequester: "",
-            ticketDetailOrganization: ""
+            ticketDetailOrganization: "",
+            ticketCreatedAt: ""
         }
 
         this.onRowClick = this.onRowClick.bind(this)
@@ -48,6 +49,7 @@ export default class DQPage extends React.Component{
                _this.setState({ticketDetailSubject: rowInfo.original.subject})
                _this.setState({ticketDetailRequester: rowInfo.original.requester_email})
                _this.setState({ticketDetailOrganization: rowInfo.original.organization_name})
+               _this.setState({ticketCreatedAt: rowInfo.original.created_at})
                _this.setState({showTicketDetails: true})
             }
         }
@@ -59,7 +61,8 @@ export default class DQPage extends React.Component{
             ticketDetailID: "",
             ticketDetailSubject: "",
             ticketDetailRequester: "",
-            ticketDetailOrganization: ""
+            ticketDetailOrganization: "",
+            ticketCreatedAt: ""
         })
     }
 
@@ -87,6 +90,7 @@ export default class DQPage extends React.Component{
                 subject={this.state.ticketDetailSubject}
                 requester_email={this.state.ticketDetailRequester}
                 organization_name={this.state.ticketDetailOrganization}
+                created_at = {this.state.ticketCreatedAt}
                 navigateBack = {this.navigateBack.bind(this)}/>
             )
         }
@@ -96,6 +100,7 @@ export default class DQPage extends React.Component{
                 {Header:'Subject', accessor:'subject'},
                 {Header:'Requester', accessor:'requester_email'},
                 {Header:'Organization', accessor:'organization_name'},
+                {Header:'Creation Date', accessor:'created_at'},
                 {
                     Header:'Status', 
                     accessor:'status',
@@ -145,18 +150,22 @@ export default class DQPage extends React.Component{
                 ];
 
 
-            return(<ReactTable 
-                data={this.state.dqTickets_JSON} 
-                columns={columns} 
-                filterable
-                defaultSorted={[
-                    {
-                      id: "id",
-                      desc: true
-                    }
-                  ]}
-                getTdProps={this.onRowClick}
-                className="-striped -highlight"/>)
+            return(
+                <div align="center">
+                    <ReactTable 
+                    data={this.state.dqTickets_JSON} 
+                    columns={columns} 
+                    filterable
+                    defaultSorted={[
+                        {
+                        id: "id",
+                        desc: true
+                        }
+                    ]}
+                    getTdProps={this.onRowClick}
+                    className="-striped -highlight"/>
+                </div>
+            )
         }  
             
 

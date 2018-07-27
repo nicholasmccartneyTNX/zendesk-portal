@@ -51,13 +51,15 @@ export default class HCODropdown extends React.Component {
             if (_this.props.orgs[i].name == hco) {
 
                 if (this.props.orgs[i]['organization_fields']['latest_refresh_date'] !== null){
-                    _this.setState({orgRefreshDate: this.props.orgs[i]['organization_fields']['latest_refresh_date'].substring(0, 10)})
+                    var unfomatted_latest_refresh = new Date(this.props.orgs[i]['organization_fields']['latest_refresh_date'])
+                    var latest_refresh_date = unfomatted_latest_refresh.toLocaleDateString("en-US")
+                    _this.setState({orgRefreshDate: latest_refresh_date })
                 } else {
                     _this.setState({orgRefreshDate: ""})
                 }
 
                 if (this.props.orgs[i]['organization_fields']['patient_count'] !== null) {
-                    _this.setState({orgPatientCount: this.props.orgs[i]['organization_fields']['patient_count'].toLocaleString()})
+                    _this.setState({orgPatientCount: this.props.orgs[i]['organization_fields']['patient_count'].toLocaleString('en')})
                 } else {
                     _this.setState({orgPatientCount: ""})
                 }

@@ -20,8 +20,9 @@
 }
 
 #sidebar {
-  width: 280px;
+  width: 250px;
   min-height: 710px;
+  padding-right: 10px;
   background-color: white;
   height: 100%;
 }
@@ -68,6 +69,7 @@ button.page {
   color: white;
   padding: 15px 20px;
   margin-top: 5px;
+  margin-left: 2px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

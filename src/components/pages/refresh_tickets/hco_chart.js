@@ -19,7 +19,7 @@ export default class HCOChart extends React.Component {
         for(let i = tickets.length - 1; i > -1; i --) {
 
             if(tickets[i].refresh_date !== "" && tickets[i].patient_count !== ""){
-                refresh = { x: tickets[i].refresh_date, y: parseInt(tickets[i].patient_count)}
+                refresh = { x: tickets[i].refresh_date, y: parseInt(tickets[i].patient_count.replace(/,/g,""))}
                 data.push(refresh)
             }
         }

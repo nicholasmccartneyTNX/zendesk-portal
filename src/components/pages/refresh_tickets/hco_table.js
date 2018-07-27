@@ -15,6 +15,7 @@ export default class HCOTable extends React.Component {
             ticketDetailSubject: "",
             ticketPatientCount: "",
             ticketRefreshDate: "",
+            ticketCreatedAt: "",
             showTicketDetails: false,
             showChart: true
         }
@@ -30,6 +31,7 @@ export default class HCOTable extends React.Component {
                _this.setState({organizationName: rowInfo.original.organization_name})
                _this.setState({ticketPatientCount: rowInfo.original.patient_count})
                _this.setState({ticketRefreshDate: rowInfo.original.refresh_date})
+               _this.setState({ticketCreatedAt: rowInfo.original.created_at})
                _this.setState({showTicketDetails: true})
                _this.setState({showChart: false})
             }
@@ -45,19 +47,22 @@ export default class HCOTable extends React.Component {
             ticketDetailRequester: "",
             organizationName: "",
             ticketPatientCount: "",
-            ticketRefreshDate: ""
+            ticketRefreshDate: "",
+            ticketCreatedAt: ""
         })
     }
     
     
 
     render() {
+
         let columns = [
             {Header:'Ticket ID', accessor:'id', width:100},
             {Header:'Subject', accessor:'subject'},
             {Header:'Patient Count', accessor:'patient_count'},
             {Header:'Refresh Date', accessor:'refresh_date'},
-            {Header:'Requester', accessor:'requester_email'}
+            {Header:'Requester', accessor:'requester_email'},
+            {Header:'Creation Date', accessor:'created_at'}
         ];
         
         if (this.state.showTicketDetails === true) {
@@ -68,6 +73,7 @@ export default class HCOTable extends React.Component {
                 organization_name={this.state.organizationName}
                 patient_count={this.state.ticketPatientCount}
                 refresh_date={this.state.ticketRefreshDate}
+                created_at = {this.state.ticketCreatedAt}
                 navigateBack = {this.navigateBack.bind(this)}
                 ticketType = {"refresh"}/>)
         } 
@@ -87,7 +93,7 @@ export default class HCOTable extends React.Component {
                             }
                           ]}
                         getTdProps={this.onRowClick}
-                        className="-highlight"
+                        className="-striped -highlight"
                         defaultPageSize={7}
                     />
                     <div align="center">
