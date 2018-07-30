@@ -155,6 +155,7 @@ export default class DQPage extends React.Component{
                     <ReactTable 
                     data={this.state.dqTickets_JSON} 
                     columns={columns} 
+                    minRows={0}
                     filterable
                     defaultSorted={[
                         {

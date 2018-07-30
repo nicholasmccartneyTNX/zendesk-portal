@@ -105,7 +105,7 @@ export default class TicketDetails extends React.Component {
                 {Header:'Author Email', accessor:'author_email', width:250},
                 {Header:'Public?', accessor:'public', width:75},
                 {Header:'Comment', accessor:'body', style:{'whiteSpace': 'pre-wrap'}},
-                {Header:'Date', accessor:'created_at', width:250}
+                {Header:'Date', accessor:'created_at', width:250},
             ]
 
             if (this.props.ticketType === "refresh"){
@@ -130,7 +130,8 @@ export default class TicketDetails extends React.Component {
                         <br/>
                         <ReactTable 
                         data={this.state.ticketComments}
-                        columns={columns} 
+                        columns={columns}
+                        minRows={0}
                         className="-striped -highlight"
                         defaultPageSize={10}/>
                     </div>
@@ -155,6 +156,7 @@ export default class TicketDetails extends React.Component {
                         <ReactTable 
                         data={this.state.ticketComments}
                         columns={columns} 
+                        minRows={0}
                         className="-striped -highlight"
                         defaultPageSize={10}/>
                     </div>

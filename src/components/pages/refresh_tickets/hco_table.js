@@ -95,6 +95,7 @@ export default class HCOTable extends React.Component {
                         getTdProps={this.onRowClick}
                         className="-striped -highlight"
                         defaultPageSize={7}
+                        minRows={1}
                     />
                     <div align="center">
                         <HCOChart tickets={this.props.tickets} name={this.props.currentOrg}/> 
