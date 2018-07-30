@@ -52,7 +52,9 @@ export default class HCODropdown extends React.Component {
 
                 if (this.props.orgs[i]['organization_fields']['latest_refresh_date'] !== null){
                     var unfomatted_latest_refresh = new Date(this.props.orgs[i]['organization_fields']['latest_refresh_date'])
-                    var latest_refresh_date = unfomatted_latest_refresh.toLocaleDateString("en-US")
+                    var options = {}
+                    options.timeZone = "UTC"
+                    var latest_refresh_date = unfomatted_latest_refresh.toLocaleDateString("en-US",options)
                     _this.setState({orgRefreshDate: latest_refresh_date })
                 } else {
                     _this.setState({orgRefreshDate: ""})
