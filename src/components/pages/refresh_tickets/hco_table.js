@@ -13,8 +13,10 @@ export default class HCOTable extends React.Component {
             organizationName: "",            
             ticketDetailID: "",
             ticketDetailSubject: "",
+            ticketDetailRequester: "",
             ticketPatientCount: "",
             ticketRefreshDate: "",
+            ticketStatus: "",
             ticketCreatedAt: "",
             showTicketDetails: false,
             showChart: true
@@ -26,11 +28,12 @@ export default class HCOTable extends React.Component {
         return {
             onClick: e => {
                _this.setState({ticketDetailID: rowInfo.original.id})
-               _this.setState({ticketDetailSubject: rowInfo.original.subject})
-               _this.setState({ticketDetailRequester: rowInfo.original.requester_email})
                _this.setState({organizationName: rowInfo.original.organization_name})
+               _this.setState({ticketDetailRequester: rowInfo.original.requester_email})
+               _this.setState({ticketDetailSubject: rowInfo.original.subject})
                _this.setState({ticketPatientCount: rowInfo.original.patient_count})
                _this.setState({ticketRefreshDate: rowInfo.original.refresh_date})
+               _this.setState({ticketStatus: rowInfo.original.status})
                _this.setState({ticketCreatedAt: rowInfo.original.created_at})
                _this.setState({showTicketDetails: true})
                _this.setState({showChart: false})
@@ -43,25 +46,21 @@ export default class HCOTable extends React.Component {
             showTicketDetails: false,
             showChart: true,
             ticketDetailID: "",
-            ticketDetailSubject: "",
-            ticketDetailRequester: "",
             organizationName: "",
             ticketPatientCount: "",
             ticketRefreshDate: "",
+            ticketStatus: "",
             ticketCreatedAt: ""
         })
-    }
-    
-    
+    }   
 
     render() {
 
         let columns = [
             {Header:'Ticket ID', accessor:'id', width:100},
-            {Header:'Subject', accessor:'subject'},
             {Header:'Patient Count', accessor:'patient_count'},
             {Header:'Refresh Date', accessor:'refresh_date'},
-            {Header:'Requester', accessor:'requester_email'},
+            {Header:'Refresh Status', accessor:'status'},
             {Header:'Creation Date', accessor:'created_at'}
         ];
         
@@ -74,6 +73,7 @@ export default class HCOTable extends React.Component {
                 patient_count={this.state.ticketPatientCount}
                 refresh_date={this.state.ticketRefreshDate}
                 created_at = {this.state.ticketCreatedAt}
+                status = {this.state.ticketStatus}
                 navigateBack = {this.navigateBack.bind(this)}
                 ticketType = {"refresh"}/>)
         } 

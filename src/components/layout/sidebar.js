@@ -4,6 +4,7 @@ import SidebarItems from './sidebar_items'
 import Landing from './landing'
 import DQ_Page from '../pages/dq_tickets/dq_tickets'
 import RR_Page from '../pages/refresh_tickets/refresh_tickets'
+import HCO_Page from '../pages/hco_info/hco_info'
 
 export default class SidebarMenu extends React.Component {
 
@@ -16,6 +17,7 @@ export default class SidebarMenu extends React.Component {
         landingToggle: true,
         dqPageToggle: false,
         rrPageToggle: false,
+        hcoPageToggle: false,
         currentPage: "TriNetX Support Portal"
       }
     
@@ -39,6 +41,7 @@ export default class SidebarMenu extends React.Component {
           this.setState({
             dqPageToggle: true,
             rrPageToggle: false,
+            hcoPageToggle: false,
             sidebarOpen: false,
             landingToggle: false,
             currentPage: "Data Quality Tickets"
@@ -48,9 +51,20 @@ export default class SidebarMenu extends React.Component {
           this.setState({
             rrPageToggle: true,
             dqPageToggle: false,
+            hcoPageToggle: false,
             sidebarOpen: false,
             landingToggle: false,
             currentPage: "HCO Refresh Tickets"            
+          });
+          break;
+        case "HCO_Page":
+          this.setState({
+            dqPageToggle: false,
+            rrPageToggle: false,
+            hcoPageToggle: true,
+            sidebarOpen: false,
+            landingToggle: false,
+            currentPage: "HCO Information"
           });
         }
     }
@@ -78,6 +92,11 @@ export default class SidebarMenu extends React.Component {
               {
                 this.state.rrPageToggle
                   ? <RR_Page/>
+                  : null
+              }
+              {
+                this.state.hcoPageToggle
+                  ? <HCO_Page/>
                   : null
               }
               {

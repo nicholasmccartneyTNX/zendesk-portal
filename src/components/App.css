@@ -113,3 +113,14 @@ button.backRefresh {
   width: 100px;
   height: 25px;
 }
+
+button.info {
+  background-color: #c0c0c0;
+  color: #000000;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+  font-size: 10px;
+  width: 100px;
+  height: 30px;
+}

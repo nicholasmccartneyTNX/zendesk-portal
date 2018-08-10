@@ -53,7 +53,9 @@ export default class TicketDetails extends React.Component {
                         <br/>
                         <strong>Refresh Date:</strong> {this.props.refresh_date}
                         <br/>
-                        <strong>Creation Date:</strong> {this.props.created_at}
+                        <strong>Refresh Status:</strong> {this.props.status}
+                        <br/>
+                        <strong>Ticket Creation Date:</strong> {this.props.created_at}
                         <br/><br/>
                         
                         <div align="center">
@@ -125,7 +127,9 @@ export default class TicketDetails extends React.Component {
                         <br/>
                         <strong>Refresh Date:</strong> {this.props.refresh_date}
                         <br/>
-                        <strong>Creation Date:</strong> {this.props.created_at}
+                        <strong>Refresh Status:</strong> {this.props.status}
+                        <br/>
+                        <strong>Ticket Creation Date:</strong> {this.props.created_at}
                         <br/>
                         <br/>
                         <ReactTable 

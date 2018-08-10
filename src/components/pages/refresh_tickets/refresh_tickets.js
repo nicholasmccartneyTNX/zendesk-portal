@@ -1,11 +1,8 @@
 import React from 'react'
-import ReactTable from 'react-table'
 import HCODropdown from './hco_dropdown'
 import axios from 'axios'
 import '../../../../node_modules/react-table/react-table.css'
 import './refresh_tickets.css'
-import TicketDetails from '../global/ticket_details'
-import {LineChart} from 'react-easy-chart'
 import { BeatLoader } from 'react-spinners';
 let config = require('../../../config/config.js')
 
