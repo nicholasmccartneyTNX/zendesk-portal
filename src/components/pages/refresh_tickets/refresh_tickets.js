@@ -26,7 +26,7 @@ export default class RefreshPage extends React.Component{
         }
         axios(request_params)
         .then(function(response){
-            const sortedOrgs = [].concat(response.data)
+            const sortedOrgs = [].concat(response.data.results)
             .sort(function(a, b) { 
                 var nameA = a.name.toUpperCase();
                 var nameB = b.name.toUpperCase();

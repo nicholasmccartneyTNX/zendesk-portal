@@ -1,5 +1,69 @@
-.collapse:hover  {
+.collapsible {
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: fit-content;
+}
+
+button.button {
+    background-color: transparent;
+    color: black;
+    box-shadow: 0;
+    border: none;
+}
+
+.smallTable {
+    width: 905px;
+    margin: auto;
+}
+
+.button:hover {
     background-color: #D4D4D4;
     opacity: .85;
 }
 
+.collapsible:hover  {
+    background-color: #D4D4D4;
+    opacity: .85;
+}
+
+.flex-container-across {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.flex-container-down {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-item-left {
+    padding: 5px;
+    color: black;
+    white-space: pre-line;
+    text-align: left;
+    width: 40%;
+}
+
+.flex-item-right {
+    padding: 5px;
+    color: black;
+    white-space: pre-line;
+    text-align: right;
+    width: 40%;
+}
+
+.skinny {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.card {
+    width: fit-content;
+}
+
+.popup {
+    white-space: pre-line;
+}

@@ -14,6 +14,7 @@
     "react-sidebar": "^2.3.2",
     "react-spinners": "^0.3.3",
     "react-table": "^6.8.6",
+    "reactjs-popup": "^1.1.4",
     "ts-react-json-table": "^0.1.1"
   },
   "nuxt": {
