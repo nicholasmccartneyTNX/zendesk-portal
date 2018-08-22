@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactTable from 'react-table';
-import Collapsible from 'react-collapsible';
 import axios from 'axios'
 import Popup from 'reactjs-popup'
 import { BeatLoader } from 'react-spinners';
@@ -26,7 +25,7 @@ export default class HCOInfo extends React.Component {
     onRowClick(cellInfo) {
         let column = cellInfo.column['Header']
 
-        let data = {'name': cellInfo.original.name, 'hcoRefresh': cellInfo.original.hcoRefresh, 'tnxRefresh': cellInfo.original.tnxRefresh, 'dataSource': cellInfo.original.dataSource, 'refreshInterval': cellInfo.original.refreshInterval, 'refreshReminder': cellInfo.original.refreshReminder, 'orgAdmin': cellInfo.original.orgAdmin, 'refreshAdmin': cellInfo.original.refreshAdmin, 'refreshCCNames': cellInfo.original.refreshCCNames, 'notes': cellInfo.original.notes}
+        let data = {'name': cellInfo.original.name, 'hcoRefresh': cellInfo.original.hcoRefresh, 'tnxRefresh': cellInfo.original.tnxRefresh, 'dataSource': cellInfo.original.dataSource, 'refreshInterval': cellInfo.original.refreshInterval, 'refreshReminder': cellInfo.original.refreshReminder, 'orgAdmin': cellInfo.original.orgAdminNames, 'refreshAdmin': cellInfo.original.refreshAdminNames, 'refreshCCNames': cellInfo.original.refreshCCNames, 'notes': cellInfo.original.notes}
        
         if (column === 'Organization') {
             return (
@@ -36,35 +35,35 @@ export default class HCOInfo extends React.Component {
 	                    <h4>Refresh Information</h4>
 	                    <div className='flex-container-down'>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>HCO Refresh Schedule:</p><p className='flex-item-right'>{data['hcoRefresh']}</p>
+	                    		<p className='flex-text-left'>HCO Refresh Schedule:</p><p className='flex-text-right'>{data['hcoRefresh']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>TriNetX Refresh Schedule:</p><p className='flex-item-right'>{data['tnxRefresh']}</p>
+	                    		<p className='flex-text-left'>TriNetX Refresh Schedule:</p><p className='flex-text-right'>{data['tnxRefresh']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Data Source:</p><p className='flex-item-right'>{data['dataSource']}</p>
+	                    		<p className='flex-text-left'>Data Source:</p><p className='flex-text-right'>{data['dataSource']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Refresh Interval:</p><p className='flex-item-right'>{data['refreshInterval']}</p>
+	                    		<p className='flex-text-left'>Refresh Interval:</p><p className='flex-text-right'>{data['refreshInterval']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Current Refresh Reminder Date:</p><p className='flex-item-right'>{data['refreshReminder']}</p>
+	                    		<p className='flex-text-left'>Current Refresh Reminder Date:</p><p className='flex-text-right'>{data['refreshReminder']}</p>
 	                    	</div>
 	                    </div>
 	                    <h4>Admin Information</h4>
 	                    <div className='flex-container-down'>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Org Admin:</p><p className='flex-item-right'>{data['orgAdmin']}</p>
+	                    		<p className='flex-text-left'>Org Admin:</p><p className='flex-text-right'>{data['orgAdmin']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Refresh Admin:</p><p className='flex-item-right'>{data['refreshAdmin']}</p>
+	                    		<p className='flex-text-left'>Refresh Admin:</p><p className='flex-text-right'>{data['refreshAdmin']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Refresh CCs</p><p className='flex-item-right'>{data['refreshCCNames']}</p>
+	                    		<p className='flex-text-left'>Refresh CCs</p><p className='flex-text-right'>{data['refreshCCNames']}</p>
 	                    	</div>
 	                    </div>
 	                    <h4>Notes</h4>
-	                    <p className='schedule'>{data['notes']}</p>
+	                    <p className='flex-text-center'>{data['notes']}</p>
                     </div>
                 </Popup>
             )
@@ -78,35 +77,35 @@ export default class HCOInfo extends React.Component {
 	                    <h4>Refresh Information</h4>
 	                    <div className='flex-container-down'>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>HCO Refresh Schedule:</p><p className='flex-item-right'>{data['hcoRefresh']}</p>
+	                    		<p className='flex-text-left'>HCO Refresh Schedule:</p><p className='flex-text-right'>{data['hcoRefresh']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>TriNetX Refresh Schedule:</p><p className='flex-item-right'>{data['tnxRefresh']}</p>
+	                    		<p className='flex-text-left'>TriNetX Refresh Schedule:</p><p className='flex-text-right'>{data['tnxRefresh']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Data Source:</p><p className='flex-item-right'>{data['dataSource']}</p>
+	                    		<p className='flex-text-left'>Data Source:</p><p className='flex-text-right'>{data['dataSource']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Refresh Interval:</p><p className='flex-item-right'>{data['refreshInterval']}</p>
+	                    		<p className='flex-text-left'>Refresh Interval:</p><p className='flex-text-right'>{data['refreshInterval']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Current Refresh Reminder Date:</p><p className='flex-item-right'>{data['refreshReminder']}</p>
+	                    		<p className='flex-text-left'>Current Refresh Reminder Date:</p><p className='flex-text-right'>{data['refreshReminder']}</p>
 	                    	</div>
 	                    </div>
 	                    <h4>Admin Information</h4>
 	                    <div className='flex-container-down'>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Org Admin:</p><p className='flex-item-right'>{data['orgAdmin']}</p>
+	                    		<p className='flex-text-left'>Org Admin:</p><p className='flex-text-right'>{data['orgAdmin']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Refresh Admin:</p><p className='flex-item-right'>{data['refreshAdmin']}</p>
+	                    		<p className='flex-text-left'>Refresh Admin:</p><p className='flex-text-right'>{data['refreshAdmin']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Refresh CCs</p><p className='flex-item-right'>{data['refreshCCNames']}</p>
+	                    		<p className='flex-text-left'>Refresh CCs</p><p className='flex-text-right'>{data['refreshCCNames']}</p>
 	                    	</div>
 	                    </div>
 	                    <h4>Notes</h4>
-	                    <p className='schedule'>{data['notes']}</p>
+	                    <p className='flex-text-center'>{data['notes']}</p>
                     </div>
                 </Popup>
             )
@@ -119,35 +118,35 @@ export default class HCOInfo extends React.Component {
 	                    <h4>Refresh Information</h4>
 	                    <div className='flex-container-down'>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>HCO Refresh Schedule:</p><p className='flex-item-right'>{data['hcoRefresh']}</p>
+	                    		<p className='flex-text-left'>HCO Refresh Schedule:</p><p className='flex-text-right'>{data['hcoRefresh']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>TriNetX Refresh Schedule:</p><p className='flex-item-right'>{data['tnxRefresh']}</p>
+	                    		<p className='flex-text-left'>TriNetX Refresh Schedule:</p><p className='flex-text-right'>{data['tnxRefresh']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Data Source:</p><p className='flex-item-right'>{data['dataSource']}</p>
+	                    		<p className='flex-text-left'>Data Source:</p><p className='flex-text-right'>{data['dataSource']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Refresh Interval:</p><p className='flex-item-right'>{data['refreshInterval']}</p>
+	                    		<p className='flex-text-left'>Refresh Interval:</p><p className='flex-text-right'>{data['refreshInterval']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Current Refresh Reminder Date:</p><p className='flex-item-right'>{data['refreshReminder']}</p>
+	                    		<p className='flex-text-left'>Current Refresh Reminder Date:</p><p className='flex-text-right'>{data['refreshReminder']}</p>
 	                    	</div>
 	                    </div>
 	                    <h4>Admin Information</h4>
 	                    <div className='flex-container-down'>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Org Admin:</p><p className='flex-item-right'>{data['orgAdmin']}</p>
+	                    		<p className='flex-text-left'>Org Admin:</p><p className='flex-text-right'>{data['orgAdmin']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Refresh Admin:</p><p className='flex-item-right'>{data['refreshAdmin']}</p>
+	                    		<p className='flex-text-left'>Refresh Admin:</p><p className='flex-text-right'>{data['refreshAdmin']}</p>
 	                    	</div>
 	                    	<div className='flex-container-across'>
-	                    		<p className='flex-item-left'>Refresh CCs</p><p className='flex-item-right'>{data['refreshCCNames']}</p>
+	                    		<p className='flex-text-left'>Refresh CCs</p><p className='flex-text-right'>{data['refreshCCNames']}</p>
 	                    	</div>
 	                    </div>
 	                    <h4>Notes</h4>
-	                    <p className='schedule'>{data['notes']}</p>
+	                    <p className='flex-text-center'>{data['notes']}</p>
                     </div>
                 </Popup>
             )
@@ -193,7 +192,7 @@ export default class HCOInfo extends React.Component {
         
         axios(request_params)
         .then(function(response){
-            _this.setState({loadingUsers: true, orgUsers: response.data.results})
+            _this.setState({loadingUsers: true, orgUsers: response.data})
         })
         .catch(function (error){
             _this.setState({orgUsers: "Error"})
@@ -218,32 +217,49 @@ export default class HCOInfo extends React.Component {
             let refreshReminder = (orgs[i]['organization_fields']['current_refresh_reminder'] !== null) ? orgs[i]['organization_fields']['current_refresh_reminder'].substring(0, 10) : ""
             let notes = orgs[i]['notes']
 
-            let refreshAdmin
-            let refreshCC = []
-            let orgAdmin
+            let refreshAdminList = []
+            let refreshCCList = []
+            let orgAdminList = []
 
             for (let j = 0; j < users.length; j ++) {
                 let userOrgID = users[j]['organization_id']
                 if (userOrgID === id) {
                     if (users[j]['user_fields']['customer_admin'] === true) {
-                        orgAdmin = users[j]['name']
+                        orgAdminList.push(users[j]['name'])
                     }
                     if (users[j]['user_fields']['refresh_admin'] === true) {
-                        refreshAdmin = users[j]['name']
+                        refreshAdminList.push(users[j]['name'])
                     }
                     if (users[j]['user_fields']['refresh_cc'] === true) {
-                        refreshCC.push(users[j]['name'])
+                        refreshCCList.push(users[j]['name'])
                     }
                 }
             }
 
             let refreshCCNames = ''
 
-            if (refreshCC.length > 0) {
-                for (let i = 0; i < refreshCC.length; i ++) {
-                    refreshCCNames = refreshCCNames + refreshCC[i] + '\n'
+            if (refreshCCList.length > 0) {
+                for (let i = 0; i < refreshCCList.length; i ++) {
+                    refreshCCNames = refreshCCNames + refreshCCList[i] + '\n'
                 }
             }
+
+            let refreshAdminNames = ''
+
+            if (refreshAdminList.length > 0) {
+                for (let i = 0; i < refreshAdminList.length; i ++) {
+                    refreshAdminNames = refreshAdminNames + refreshAdminList[i] + '\n'
+                }
+            }
+
+            let orgAdminNames = ''
+
+            if (orgAdminList.length > 0) {
+                for (let i = 0; i < orgAdminList.length; i ++) {
+                    orgAdminNames = orgAdminNames + orgAdminList[i] + '\n'
+                }
+            }
+
             
             let lastRefresh
             if (orgs[i]['organization_fields']['latest_refresh_date'] === null) {
@@ -258,7 +274,7 @@ export default class HCOInfo extends React.Component {
             } else {
                 patientCount = ""
             }
-            names.push({name, hcoRefresh, tnxRefresh, dataSource, refreshInterval, refreshReminder, orgAdmin, refreshAdmin, refreshCCNames, notes, lastRefresh, patientCount})
+            names.push({name, hcoRefresh, tnxRefresh, dataSource, refreshInterval, refreshReminder, orgAdminNames, refreshAdminNames, refreshCCNames, notes, lastRefresh, patientCount})
             
         }
         return names
@@ -278,7 +294,7 @@ export default class HCOInfo extends React.Component {
                         <p class="loading">Loading HCOs and Users</p>
                     </div>         
                 )
-        } else if ((this.state.loadingHCO === true && this.state.loadingUsers === false) || (this.state.loadingHCO === false && this.state.loadingUsers === true)) {
+        } else if (this.state.loadingHCO === false || this.state.loadingUsers === false) {
             return(
                 <div align="center">
                     <br/><br/>
@@ -299,8 +315,9 @@ export default class HCOInfo extends React.Component {
 
             return (
 
+
                 <div align='center' className='smallTable'>
-                    <br/>
+                    <p className='hint'>Click any row to view detailed information about the organization.</p>
                     <ReactTable 
                         data={this.makeHCOInfoPage()}
                         columns={topLevelColumns}
