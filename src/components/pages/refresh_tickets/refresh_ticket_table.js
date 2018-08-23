@@ -1,9 +1,9 @@
 import React from 'react'
-import HCOChart from './hco_chart'
+import RefreshChart from './refresh_chart'
 import TicketDetails from '../global/ticket_details'
 import axios from 'axios'
 import ReactTable from 'react-table'
-let config = require('../../../config/config.js')
+let config = require('../../../config/config')
 
 export default class HCOTable extends React.Component {
 
@@ -98,7 +98,7 @@ export default class HCOTable extends React.Component {
                         minRows={1}
                     />
                     <div align="center">
-                        <HCOChart tickets={this.props.tickets} name={this.props.currentOrg}/> 
+                        <RefreshChart tickets={this.props.tickets} name={this.props.currentOrg}/> 
                     </div>
 
                 </div>

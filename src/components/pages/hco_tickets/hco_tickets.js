@@ -1,11 +1,9 @@
 import React from 'react'
-import HCODropdown from './refresh_dropdown'
 import axios from 'axios'
 import '../../../../node_modules/react-table/react-table.css'
 import './refresh_tickets.css'
 import { BeatLoader } from 'react-spinners';
 let config = require('../../../config/config.js')
-
 
 export default class RefreshPage extends React.Component{
 
@@ -74,6 +72,18 @@ export default class RefreshPage extends React.Component{
                     </div>
                 )
             }
+        }
+    }
+}
+
+export class HCODropdown extends React.Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state={
+            tickets: "",
+            dropwdownMade: false,
         }
     }
 }

@@ -25,7 +25,9 @@ export default class HCOInfo extends React.Component {
     onRowClick(cellInfo) {
         let column = cellInfo.column['Header']
 
-        let data = {'name': cellInfo.original.name, 'hcoRefresh': cellInfo.original.hcoRefresh, 'tnxRefresh': cellInfo.original.tnxRefresh, 'dataSource': cellInfo.original.dataSource, 'refreshInterval': cellInfo.original.refreshInterval, 'refreshReminder': cellInfo.original.refreshReminder, 'orgAdmin': cellInfo.original.orgAdminNames, 'refreshAdmin': cellInfo.original.refreshAdminNames, 'refreshCCNames': cellInfo.original.refreshCCNames, 'notes': cellInfo.original.notes}
+        let data = {'name': cellInfo.original.name, 'hcoRefresh': cellInfo.original.hcoRefresh, 'tnxRefresh': cellInfo.original.tnxRefresh, 'dataSource': cellInfo.original.dataSource, 
+                    'refreshInterval': cellInfo.original.refreshInterval, 'refreshReminder': cellInfo.original.refreshReminder, 'orgAdmin': cellInfo.original.orgAdminNames, 
+                    'refreshAdmin': cellInfo.original.refreshAdminNames, 'refreshCCNames': cellInfo.original.refreshCCNames, 'notes': cellInfo.original.notes}
        
         if (column === 'Organization') {
             return (

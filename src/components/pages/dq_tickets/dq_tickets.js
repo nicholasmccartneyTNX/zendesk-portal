@@ -88,8 +88,8 @@ export default class DQPage extends React.Component{
             return (<TicketDetails 
                 id={this.state.ticketDetailID}
                 subject={this.state.ticketDetailSubject}
-                requester_email={this.state.ticketDetailRequester}
-                organization_name={this.state.ticketDetailOrganization}
+                requester_email = {this.state.ticketDetailRequester}
+                organization_name = {this.state.ticketDetailOrganization}
                 created_at = {this.state.ticketCreatedAt}
                 navigateBack = {this.navigateBack.bind(this)}/>
             )

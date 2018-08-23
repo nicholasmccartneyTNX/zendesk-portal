@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-import HCOTable from './hco_table'
+import RefreshTable from './refresh_ticket_table'
 import { BeatLoader } from 'react-spinners';
-let config = require('../../../config/config.js')
+let config = require('../../../config/config')
 
 export default class HCODropdown extends React.Component {
 
@@ -125,7 +125,7 @@ export default class HCODropdown extends React.Component {
                         <strong>Patients: </strong> {this.state.orgPatientCount}
                         <br/><br/>
                     </div>
-                    <HCOTable currentOrg={this.state.organizationName} tickets={this.state.orgRefreshTickets}/>                    
+                    <RefreshTable currentOrg={this.state.organizationName} tickets={this.state.orgRefreshTickets}/>                    
                 </div>
             )
         } else {
