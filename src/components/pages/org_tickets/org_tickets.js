@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import '../../../../node_modules/react-table/react-table.css'
-import './refresh_tickets.css'
+import HCODropdown from './org_dropdown'
 import { BeatLoader } from 'react-spinners';
 let config = require('../../../config/config.js')
 
@@ -20,7 +20,7 @@ export default class RefreshPage extends React.Component{
     updateHCOs() {               
         let _this = this;
         var request_params = {
-            url: config.API() + '/HCOs'
+            url: config.API() + '/orgs/all'  
         }
         axios(request_params)
         .then(function(response){
@@ -72,18 +72,6 @@ export default class RefreshPage extends React.Component{
                     </div>
                 )
             }
-        }
-    }
-}
-
-export class HCODropdown extends React.Component {
-
-    constructor(props) {
-        super(props)
-
-        this.state={
-            tickets: "",
-            dropwdownMade: false,
         }
     }
 }

@@ -28,8 +28,9 @@ export default class DQPage extends React.Component{
     getDQTickets() {
         let _this = this
 
+        let query = 'dataquality_dataissue'
         var request_params = {
-            url: config.API() + '/getDQTickets'
+            url: config.API() + '/tickets/dq-' + query
         }
 
         axios(request_params)

@@ -22,7 +22,7 @@ export default class RefreshPage extends React.Component{
     updateHCOs() {               
         let _this = this;
         var request_params = {
-            url: config.API() + '/HCOs'
+            url: config.API() + '/orgs/hco'
         }
         axios(request_params)
         .then(function(response){

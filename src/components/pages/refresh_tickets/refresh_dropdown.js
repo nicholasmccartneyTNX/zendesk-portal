@@ -28,9 +28,9 @@ export default class HCODropdown extends React.Component {
 
     getRRTickets() {
         let _this = this
-
+        let query = 'tags:appliance_refresh_i2b2 tags:appliance_refresh_files tags:appliance_refresh_files_i2b2 -tags:closed_by_merge organization:"' + this.state.organizationName + '"'
         var request_params = {
-            url: config.API() + '/getRRTickets/' + this.state.organizationName
+            url: config.API() + '/tickets/refresh-' + query
         }
 
         axios(request_params)
@@ -109,7 +109,7 @@ export default class HCODropdown extends React.Component {
                         color={'#00467F'} 
                         loading={true}
                     />
-                    <p class="loading">Loading HCO information</p>  
+                    <p class="loading">Loading Refresh Tickets for {this.state.organizationName}</p>  
                 </div>
             )
         } else if (this.state.orgRefreshTickets !== "") {

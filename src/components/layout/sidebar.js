@@ -5,6 +5,7 @@ import Landing from './landing'
 import DQ_Page from '../pages/dq_tickets/dq_tickets'
 import RR_Page from '../pages/refresh_tickets/refresh_tickets'
 import HCO_Page from '../pages/hco_info/hco_info'
+import Support_Ticket_Page from '../pages/org_tickets/org_tickets'
 
 export default class SidebarMenu extends React.Component {
 
@@ -17,7 +18,7 @@ export default class SidebarMenu extends React.Component {
         landingToggle: true,
         dqPageToggle: false,
         rrPageToggle: false,
-        hcoPageToggle: false,
+        supportTicketPageToggle: false,
         currentPage: "TriNetX Support Portal"
       }
     
@@ -42,6 +43,7 @@ export default class SidebarMenu extends React.Component {
             dqPageToggle: true,
             rrPageToggle: false,
             hcoPageToggle: false,
+            supportTicketPageToggle: false,
             sidebarOpen: false,
             landingToggle: false,
             currentPage: "Data Quality Tickets"
@@ -52,20 +54,34 @@ export default class SidebarMenu extends React.Component {
             rrPageToggle: true,
             dqPageToggle: false,
             hcoPageToggle: false,
+            supportTicketPageToggle: false,
             sidebarOpen: false,
             landingToggle: false,
             currentPage: "HCO Refresh Tickets"            
           });
           break;
-        case "HCO_Page":
+        case "HCO_Info_Page":
           this.setState({
             dqPageToggle: false,
             rrPageToggle: false,
             hcoPageToggle: true,
+            supportTicketPageToggle: false,
             sidebarOpen: false,
             landingToggle: false,
             currentPage: "HCO Information"
           });
+          break;
+        case "Support_Ticket_Page":
+          this.setState({
+            dqPageToggle: false,
+            rrPageToggle: false,
+            hcoPageToggle: false,
+            supportTicketPageToggle: true,
+            sidebarOpen: false,
+            landingToggle: false,
+            currentPage: "Support Tickets"
+          });
+          break;
         }
     }
 
@@ -74,7 +90,7 @@ export default class SidebarMenu extends React.Component {
     var sidebarItems = <SidebarItems pagestate={this}/> 
 
     return (
-    <div>
+      <div>
             <Sidebar sidebar={sidebarItems}
               open={this.state.sidebarOpen}
               onSetOpen={this.onSetSidebarOpen}>
@@ -97,6 +113,11 @@ export default class SidebarMenu extends React.Component {
               {
                 this.state.hcoPageToggle
                   ? <HCO_Page/>
+                  : null
+              }
+              {
+                this.state.supportTicketPageToggle
+                  ? <Support_Ticket_Page/>
                   : null
               }
               {

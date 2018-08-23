@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import HCOTable from './hco_table'
+import HCOTable from './org_tickets_table'
 import { BeatLoader } from 'react-spinners';
 let config = require('../../../config/config')
 
@@ -18,17 +18,17 @@ export default class HCODropdown extends React.Component {
 
     chooseOrg(event) {         
         this.setState({organizationName: event.target.value, dropdownMade: true}, function() {
-            this.setState({orgTickets: ""})
-            this.getHCOInfo();
-            this.getRRTickets();
+            this.setState({orgTickets: ""});
+            this.getTickets();
         });
     }
 
     getTickets() {
         let _this = this
 
+        let query = 'type:ticket -tags:appliance_refresh_files_i2b2 -tags:appliance_refresh_i2b2 -tags:appliance_refresh_files organization:' + this.state.organizationName;
         var request_params = {
-            url: config.API() + '/tickets/' + this.state.organizationName
+            url: config.API() + '/tickets/all-' + query
         }
 
         axios(request_params)
@@ -80,7 +80,7 @@ export default class HCODropdown extends React.Component {
                         color={'#00467F'} 
                         loading={true}
                     />
-                    <p class="loading">Loading HCO information</p>  
+                    <p class="loading">Loading Tickets for {this.state.organizationName}</p>  
                 </div>
             )
         } else if (this.state.orgTickets !== "") {
@@ -90,6 +90,7 @@ export default class HCODropdown extends React.Component {
                         <select className="flex-dropdown" id="orgSelection" name="org" onChange={this.chooseOrg} value={this.state.organizationName} align="center">
                             {this.HCODropdown()}               
                         </select>
+                        <br/>
                     </div>
                     <HCOTable currentOrg={this.state.organizationName} tickets={this.state.orgTickets}/>                    
                 </div>
